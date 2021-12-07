@@ -14,7 +14,7 @@ serverPort: 58613 #对外开放api端口号
 
 openTiming 是否开启定时签到功能，若为true，则按cron配置时间签到（cron表达式可自行百度）；false关闭定时签到功能
 
-serverPort为对外开放签到api端口号，若openTiming为true，则不创建该服务，false创建该服务。即用户可直接访问http://127.0.0.1:58613/api/sign完成签到（签到结果推送暂时未加）  可配合其他定时任务系统，完成定时签到
+serverPort为对外开放签到api端口号，若openTiming为true，则不创建该服务，false创建该服务。即用户可直接访问http://127.0.0.1:58613/api/sign 完成签到； 可配合其他定时任务系统，完成定时签到
 
 签到后会将签到结果推送给setting配置文件中的master
 
