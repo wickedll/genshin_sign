@@ -45,6 +45,7 @@ router.get( "/", async ( req, res ) => {
 			}
 		}
 	}
+	Adachi.client.sendPrivateMsg(Adachi.config.master, result);
 	res.send( result );
 } );
 
