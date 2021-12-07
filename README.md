@@ -21,3 +21,5 @@ serverPort为对外开放签到api端口号，若openTiming为true，则不创�
 # 3.命令触发方式
 
 命令触发方式为配置的 header+mysSign 若需修改可自行修改
+
+命令scope为私聊 权限需bot管理员
