@@ -1,0 +1,3 @@
+openTiming: true #是否开启定时功能
+cron: "0 5 10 * * *" #自动签到时间
+serverPort: 58613 #对外开放api端口号
