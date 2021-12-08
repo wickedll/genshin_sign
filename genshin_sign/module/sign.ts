@@ -13,13 +13,13 @@ export class SignClass {
 		if(signConfig.openTiming){
 			Adachi.logger.info("米游社签到定时已开启");
 			scheduleJob( signConfig.cron, async () => {
-				await this.sign(null);
+				await this.sign(null, null);
 			} );
 		}
 	}
 	
-	public async sign(sendMessage): Promise<void> {
-		const cookieList = this.cookies.getCookies();
+	public async sign(sendMessage, cookies): Promise<void> {
+		const cookieList = cookies ? cookies : this.cookies.getCookies();
 		for (const cookie of cookieList) {
 			let users;
 			try {

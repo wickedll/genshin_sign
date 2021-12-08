@@ -6,5 +6,5 @@ import { signClass } from "../init";
 export async function main(
 	{ sendMessage }: InputParameter
 ): Promise<void> {
-	await signClass.sign(sendMessage);
+	await signClass.sign(sendMessage, null);
 }

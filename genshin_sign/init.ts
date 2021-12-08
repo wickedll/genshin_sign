@@ -16,7 +16,7 @@ const sign: OrderConfig = {
 	type: "order",
 	cmdKey: "genshin.mys.sign",
 	desc: [ "米游社签到", ""],
-	headers: [ "mysSign" ],
+	headers: [ "mysSign"],
 	regexps: [ "" ],
 	main: "achieves/sign",
 	auth: AuthLevel.Manager,
@@ -24,12 +24,21 @@ const sign: OrderConfig = {
     scope: MessageScope.Private
 }
 
+const privateSign: OrderConfig = {
+	type: "order",
+	cmdKey: "genshin.mys.private-sign",
+	desc: [ "私人服务列表米游社签到", "(账户编号)" ],
+	headers: [ "sub_mys_sign" ],
+	regexps: [ "(\\d+)?" ],
+	main: "achieves/private/sign"
+};
+
 export async function init(): Promise<PluginSetting> {
 	if(!signConfig.openTiming){
 		createServer(signConfig, bot.logger);
 	}
     return { 
         pluginName: "genshin_sign", 
-        cfgList: [ sign ] 
+        cfgList: [ sign, privateSign ] 
     };
 }

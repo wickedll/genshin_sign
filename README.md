@@ -23,3 +23,7 @@ serverPort为对外开放签到api端口号，若openTiming为true，则不创�
 命令触发方式为配置的 header+mysSign 若需修改可自行修改
 
 命令scope为私聊 权限需bot管理员
+
+# 4.功能更新
+
+- 新增米游社签到私人服务 命令 header+sub_mys_sign（编号）	2021/12/08
