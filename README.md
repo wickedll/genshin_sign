@@ -27,3 +27,7 @@ serverPort为对外开放签到api端口号，若openTiming为true，则不创�
 # 4.功能更新
 
 - 新增米游社签到私人服务 命令 header+sub_mys_sign（编号）	2021/12/08
+
+# 5.LICENSE
+
+[LICENSE](https://github.com/wickedll/genshin_sign/blob/main/LICENSE)
