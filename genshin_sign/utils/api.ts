@@ -9,10 +9,11 @@ const __API = {
 
 
 const HEADERS2 = {
-	"User-Agent": "Mozilla/5.0 (Linux; Android 5.1.1; f103 Build/LYZ28N; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/52.0.2743.100 Safari/537.36 miHoYoBBS/2.11.1",
+	"User-Agent": "Mozilla/5.0 (Linux; Android 5.1.1; f103 Build/LYZ28N; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/52.0.2743.100 Safari/537.36 miHoYoBBS/2.34.1",
 	"Referer": "https://webstatic.mihoyo.com/bbs/event/signin-ys/index.html?bbs_auth_required=true&act_id=e202009291139501&utm_source=bbs&utm_medium=mys&utm_campaign=icon",
 	"Accept-Encoding": "gzip, deflate",
-	"x-rpc-device_id": guid()
+	"x-rpc-device_id": guid(),
+	"DS": getDS2()
 };
 
 function guid() {
@@ -28,7 +29,7 @@ export async function sign( uid: number, region: string, cookie: string ): Promi
 		uid: uid,
 		region: region
 	};
-	
+
 	return new Promise( ( resolve, reject ) => {
 		request( {
 			method: "POST",
@@ -37,10 +38,9 @@ export async function sign( uid: number, region: string, cookie: string ): Promi
 			body,
 			headers: {
 				...HEADERS2,
-				"DS": getDS2(),
 				"Cookie": cookie,
 				"content-type": "application/json",
-				"x-rpc-app_version": "2.3.0",
+				"x-rpc-app_version": "2.34.1",
 				"x-rpc-client_type": 5
 			}
 		} )
