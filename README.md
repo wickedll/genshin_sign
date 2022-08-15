@@ -2,7 +2,17 @@
 
 # 1.使用方法
 
-项目下载后，直接将genshin_sign文件夹复制到，[原项目](https://github.com/SilveryStar/Adachi-BOT)plugins文件夹下，然后将genshin_sign/config文件夹下的genshin_sign.yml文件拷贝到[原项目](https://github.com/SilveryStar/Adachi-BOT)config目录下即可
+进入 `Adachi-BOT/src/plugins` 目录下，执行如下命令 
+  
+ ```bash 
+ git clone https://github.com/wickedll/genshin_sign 
+ ``` 
+  
+ 或通过本项目仓库左上角 `code -> Download.zip` 下载压缩包，解压至 `Adachi-BOT/src/plugins` 目录内 
+  
+ > 注意：若使用下载压缩包方式，请务必删除解压后目录名字中的 `-master`，否则插件无法启动
+
+然后将genshin_sign/config文件夹下的genshin_sign.yml文件拷贝到[原项目](https://github.com/SilveryStar/Adachi-BOT)config目录下即可
 
 # 2.genshin_sign.yml配置说明
 
@@ -26,6 +36,7 @@ serverPort为对外开放签到api端口号，若openTiming为true，则不创�
 
 # 4.功能更新
 
+- 支持插件热更新	2022/8/14
 - 新增米游社签到私人服务 命令 header+sub_mys_sign（编号）	2021/12/08
 
 # 5.LICENSE

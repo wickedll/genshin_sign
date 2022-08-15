@@ -37,8 +37,9 @@ export async function init(): Promise<PluginSetting> {
 	if(!signConfig.openTiming){
 		createServer(signConfig, bot.logger);
 	}
-    return { 
-        pluginName: "genshin_sign", 
-        cfgList: [ sign, privateSign ] 
+    return {
+        pluginName: "genshin_sign",
+        cfgList: [ sign, privateSign ],
+        repo: "wickedll/genshin_sign"
     };
 }
