@@ -1,5 +1,6 @@
 import * as api from "./api";
 import { cookies } from "../init";
+import { Cookies } from "#genshin_sign/module/cookies";
 
 export enum ErrorMsg {
 	NOT_FOUND = "未查询到角色数据，请检查米哈游通行证（非UID）是否有误或是否设置角色信息公开",
@@ -30,8 +31,16 @@ export async function signPromise( uid: number, region: string, cookie: string):
 	const { retcode, message, data } = await api.sign( uid, region, cookie ? cookie : cookies.get() );
 	
 	return new Promise( async ( resolve, reject ) => {
+		if ( retcode === -100 ) {
+			reject( Cookies.checkExpired( cookie ) );
+			return;
+		}
 		if ( retcode !== 0 ) {
 			reject( `米游社接口报错: ${ message }` );
+			return;
+		}
+		if ( data.gt || data.success !== 0 ) {
+			reject( "遇到验证码拦截，签到失败，请自行手动签到" );
 			return;
 		}
 		resolve( data );
@@ -42,6 +51,10 @@ export async function hasSignPromise( uid: number, region: string, cookie: strin
 	const { retcode, message, data } = await api.getHasSign( uid, region, cookie ? cookie : cookies.get() );
 	
 	return new Promise( async ( resolve, reject ) => {
+		if ( retcode === -100 ) {
+			reject( Cookies.checkExpired( cookie ) );
+			return;
+		}
 		if ( retcode !== 0 ) {
 			reject( `米游社接口报错: ${ message }` );
 			return;
@@ -55,7 +68,10 @@ export async function userGameRolesPromise(cookie: string): Promise<UserGameRole
 	const { retcode, message, data } = await api.getUserGameRolesByCookie( cookie ? cookie : cookies.get() );
 	
 	return new Promise( async ( resolve, reject ) => {
-		if ( retcode !== 0 ) {
+		if ( retcode === -100 ) {
+			reject( Cookies.checkExpired( cookie ) );
+			return;
+		} else if ( retcode !== 0 ) {
 			reject( `米游社接口报错: ${ message }` );
 			return;
 		} else if ( !data.list || data.list.length === 0 ) {
